@@ -31,7 +31,7 @@ namespace MCServer
         public String Name;
         public Chat DisplayName;
         public int Latency = 0;
-        public Gamemode Gamemode = Gamemode.Survival;
+        public Gamemode Gamemode = Gamemode.Creative;
         private byte _oplevel;
 
         public byte OpLevel

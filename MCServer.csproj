@@ -1,5 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+    <ItemGroup>
+      <ProjectReference Include="..\dotnet-minecraft-data\dotnet-minecraft-data.csproj" />
+      <ProjectReference Include="..\fNbt\fNbt.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="DotNetZip" Version="1.13.8" />
+    </ItemGroup>
+
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>netcoreapp3.1</TargetFramework>

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -36,7 +37,7 @@ namespace MCServer.Network
                 if (readInt == -1)
                     readInt = 0;
                 readByte = (byte)readInt;
-                outVal |= (readByte & 0b0111_1111) << (iter * 7);
+                    outVal |= (readByte & 0b0111_1111) << (iter * 7);
                 iter++;
             } while (iter <= 10 && (readByte & (1 << 7)) != 0);
 
@@ -89,6 +90,28 @@ namespace MCServer.Network
             Buffer.BlockCopy(encodedLen, 0, outBuf, 0, encodedLen.Length);
             Buffer.BlockCopy(encodedStr, 0, outBuf, encodedLen.Length, encodedStr.Length);
             return outBuf;
+        }
+
+        public static int RoundUp(int value, int multiple)
+        {
+            return (value + (multiple - 1)) / multiple * multiple;    
+        }
+
+        public static byte BitsNeededToStore(int value)
+        {
+            byte i = 0;
+            while (value >> i != 0)
+                i++;
+            return i;
+        }
+
+        public static void HexDump(IEnumerable enumerable)
+        {
+            Console.Write("{");
+            foreach (object whatever in enumerable)
+                Console.Write(whatever + ", ");
+            
+            Console.WriteLine("}");
         }
     }
 }

@@ -6,19 +6,19 @@ namespace MCServer.Network
 {
     public class MCSerializer
     {
-        private readonly MemoryStream stream = new MemoryStream();
+        public readonly MemoryStream Stream = new MemoryStream();
         private readonly BinaryReader reader;
         private readonly BinaryWriter writer;
         
         public MCSerializer()
         {
-            reader = new BinaryReader(stream);
-            writer = new BinaryWriter(stream);
+            reader = new BinaryReader(Stream);
+            writer = new BinaryWriter(Stream);
         }
 
         public MCSerializer(MemoryStream stream)
         {
-            this.stream = stream;
+            Stream = stream;
             reader = new BinaryReader(stream);
             writer = new BinaryWriter(stream);
         }
@@ -130,7 +130,7 @@ namespace MCServer.Network
 
         public String ReadString(int maxLength = Int32.MaxValue)
         {
-            return Utils.ReadString(stream, maxLength);
+            return Utils.ReadString(Stream, maxLength);
         }
 
         public void WriteVarInt(int value)
@@ -140,7 +140,7 @@ namespace MCServer.Network
 
         public int ReadVarInt()
         {
-            return Utils.ReadVarInt(stream);
+            return Utils.ReadVarInt(Stream);
         }
 
         public void WriteVarLong(long value)
@@ -150,7 +150,7 @@ namespace MCServer.Network
 
         public long ReadVarLong()
         {
-            return Utils.ReadVarLong(stream);
+            return Utils.ReadVarLong(Stream);
         }
 
         public void WriteBool(bool value)
@@ -171,7 +171,7 @@ namespace MCServer.Network
         public Span<byte> ReadBytes(long length = -1)
         {
             if (length == -1)
-                length =  stream.Length - stream.Position;
+                length =  Stream.Length - Stream.Position;
             Span<byte> outBuf = new byte[length];
             reader.Read(outBuf);
             return outBuf;
@@ -209,7 +209,7 @@ namespace MCServer.Network
         
         public byte[] GetBytes()
         {
-            return stream.ToArray();
+            return Stream.ToArray();
         }
     }
 }

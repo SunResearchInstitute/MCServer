@@ -73,8 +73,9 @@ namespace MCServer.Network.Packets
                     }
                 }
             }
-
             Data = serializer.GetBytes();
+
+            await base.SendToClient();
         }
     }
 }

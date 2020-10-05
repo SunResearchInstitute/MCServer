@@ -1,6 +1,6 @@
 namespace MCServer
 {
-    public enum Biomes
+    public enum Biome
     {
         Ocean,
         Plains,

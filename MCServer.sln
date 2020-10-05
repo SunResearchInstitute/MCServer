@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCServer", "MCServer.csproj", "{1444BCFB-8DE6-4B35-9BC5-3361D40474FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnet-minecraft-data", "..\dotnet-minecraft-data\dotnet-minecraft-data.csproj", "{EFE6AAA2-A383-47B9-9CDA-46FEE48DCBFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{1444BCFB-8DE6-4B35-9BC5-3361D40474FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1444BCFB-8DE6-4B35-9BC5-3361D40474FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1444BCFB-8DE6-4B35-9BC5-3361D40474FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFE6AAA2-A383-47B9-9CDA-46FEE48DCBFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFE6AAA2-A383-47B9-9CDA-46FEE48DCBFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFE6AAA2-A383-47B9-9CDA-46FEE48DCBFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFE6AAA2-A383-47B9-9CDA-46FEE48DCBFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using MCServer.Network.Packets;
+using MCServer.Saves;
 
 namespace MCServer.Network
 {
@@ -31,8 +33,8 @@ namespace MCServer.Network
             
             HeldItemChangePacket heldItemChangePacket = new HeldItemChangePacket(client, 0);
             await heldItemChangePacket.SendToClient();
-            
-            
+
+            client.Player.Y = 68;
             PlayerPositionLookPacket playerPositionLookPacket = new PlayerPositionLookPacket(client, client.Player);
             await playerPositionLookPacket.SendToClient();
             
@@ -44,6 +46,54 @@ namespace MCServer.Network
             playerInfoPacket.AddPlayer(client.Player);
             await playerInfoPacket.SendToClient();
             
+            Region region = new Region(0, 0);
+            
+            ChunkColumn column = new ChunkColumn(0, 0);
+             column.FillTest();
+            ChunkDataPacket chunkDataPacket = new ChunkDataPacket(client, column);
+            await chunkDataPacket.SendToClient();
+  
+            
+            column = new ChunkColumn(1, 0);
+            column.FillTest();
+            chunkDataPacket = new ChunkDataPacket(client, column);
+            await chunkDataPacket.SendToClient();
+            
+            column = new ChunkColumn(1, 1);
+            column.FillTest();
+            chunkDataPacket = new ChunkDataPacket(client, column);
+            await chunkDataPacket.SendToClient();
+
+            column = new ChunkColumn(0, 1);
+            column.FillTest();
+            chunkDataPacket = new ChunkDataPacket(client, column);
+            await chunkDataPacket.SendToClient();
+            
+            column = new ChunkColumn(-1, 1);
+            column.FillTest();
+            chunkDataPacket = new ChunkDataPacket(client, column);
+            await chunkDataPacket.SendToClient();
+            
+            column = new ChunkColumn(-1, -1);
+            column.FillTest();
+            chunkDataPacket = new ChunkDataPacket(client, column);
+            await chunkDataPacket.SendToClient();
+            
+            column = new ChunkColumn(1, -1);
+            column.FillTest();
+            chunkDataPacket = new ChunkDataPacket(client, column);
+            await chunkDataPacket.SendToClient();
+            
+            column = new ChunkColumn(0, -1);
+            column.FillTest();
+            chunkDataPacket = new ChunkDataPacket(client, column);
+            await chunkDataPacket.SendToClient();
+            
+            column = new ChunkColumn(-1, -0);
+            column.FillTest();
+            chunkDataPacket = new ChunkDataPacket(client, column);
+            await chunkDataPacket.SendToClient();
+            Console.WriteLine("Sent");
         }
     }
 }
