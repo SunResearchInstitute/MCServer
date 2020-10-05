@@ -1,0 +1,6 @@
+[submodule "fNbt"]
+	path = fNbt
+	url = https://github.com/EliseZeroTwo/fNbt.git
+[submodule "dotnet-minecraft-data"]
+	path = dotnet-minecraft-data
+	url = https://github.com/HeadpatServices/dotnet-minecraft-data.git

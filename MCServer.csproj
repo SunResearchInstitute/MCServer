@@ -1,8 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <ItemGroup>
-      <ProjectReference Include="..\dotnet-minecraft-data\dotnet-minecraft-data.csproj" />
-      <ProjectReference Include="..\fNbt\fNbt.csproj" />
+      <ProjectReference Include="fNbt\fNbt.csproj" />
     </ItemGroup>
 
     <ItemGroup>
